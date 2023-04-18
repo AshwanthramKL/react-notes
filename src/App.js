@@ -23,4 +23,14 @@ function App() {
   );
 }
 
+// A JS function
+const GetName = () => {
+  return "MARTIALEAGLE";
+};
+
+// A component
+const GetNameComponent = () => {
+  return <h1>MARTIALEAGLE</h1>;
+};
+
 export default App;

@@ -31,17 +31,7 @@ Opens on `localhost:3000`
 JSX = JS + HTML
 
 ```javascript
-import './App.css';
-
-function App() {
-  return (
-    <div className="App">
-      <h1>Hello World</h1>
-    </div>
-  );
-}
-
-export default App;
+const jsx = <h1>This is JSX</h1>
 ```
 
 ### Why JSX?
@@ -50,3 +40,16 @@ export default App;
 * Code reusability
 * Code organisation
 
+## Components
+
+A JS function that returns JSX.
+
+```javascript
+// A component
+const GetNameComponent = () => {
+  return <h1>MARTIALEAGLE</h1>;
+};
+```
+
+* Has to start with Capital 
+* App component is the first component to be displayed in the website.
