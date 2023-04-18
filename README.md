@@ -53,3 +53,15 @@ const GetNameComponent = () => {
 
 * Has to start with Capital 
 * App component is the first component to be displayed in the website.
+
+### Using a component
+
+```javascript
+function App() {
+  return (
+    <div className="App">
+      <GetNameComponent/>
+    </div>
+  );
+}
+```
