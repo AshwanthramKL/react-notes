@@ -65,3 +65,38 @@ function App() {
   );
 }
 ```
+
+## Props
+
+An object that acts as Argument / Parameter for components. 
+
+```javascript
+function App() {
+  return (
+    <div className="App">
+      <User name="ash" age={20} email="ash@ash.com" />
+      <User name="bash" age={20} email="bash@ash.com" />
+      <User name="cash" age={20} email="cash@ash.com" />
+    </div>
+  );
+}
+
+const User = (props) => {
+  return (
+    <div>
+      <h1>{props.name}</h1>
+      <h2>{props.age}</h2>
+      <h2>{props.email}</h2>
+    </div>
+  );
+};
+```
+
+props object looks like this:
+```javascript
+props = {
+  name: "ash",
+  age: 20,
+  email: "ash@ash.com"
+}
+```
