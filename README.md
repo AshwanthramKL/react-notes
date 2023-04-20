@@ -104,3 +104,42 @@ props = {
 
 ## CSS in React
 
+### With App.css
+
+Adding css in the `App.css` file and importing it into the `App.js` file is one way of doing it.
+
+### With App.module.css
+
+Using `App.module.css` turns the css file into a Css module style sheet.
+
+Import it into the `App.js` file.
+
+```javascript
+import styles from "./App.module.css";
+```
+
+And treat it as objects and use css in class names.
+
+```javascript
+function App() {
+  return (
+    <div className={styles.App}>
+      <h1 className={styles.name}>MARTIALEAGLE</h1>
+    </div>
+  );
+}
+```
+
+### Inline Css
+
+Add styling to the JSX elements where they are written.
+
+```javascript
+function App() {
+  return (
+    <div className={styles.App}>
+      <h1 className={styles.name} style={{color: "brown"}}>MARTIALEAGLE</h1>
+    </div>
+  );
+}
+```

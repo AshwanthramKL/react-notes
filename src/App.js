@@ -1,9 +1,10 @@
-import "./App.css";
-// Exercise 1
+import styles from "./App.module.css";
+
+
 function App() {
   return (
-    <div className="App">
-      <h1 className="name">MARTIALEAGLE</h1>
+    <div className={styles.App}>
+      <h1 className={styles.name}>MARTIALEAGLE</h1>
     </div>
   );
 }
