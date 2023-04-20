@@ -3,15 +3,14 @@
 React is a popular open-source JavaScript library used for building user interfaces. It was created by Facebook and is now maintained by Facebook and a community of developers.
 
 ## Why React over vanilla JS?
-  
-* Makes it easy to create complex and dynamic UIs by breaking them down into reusable components.  
 
-* Provides a virtual DOM (Document Object Model) which enables efficient updating of the UI by only re-rendering the parts that have changed, rather than the whole page.
+- Makes it easy to create complex and dynamic UIs by breaking them down into reusable components.
 
-* Performance
+- Provides a virtual DOM (Document Object Model) which enables efficient updating of the UI by only re-rendering the parts that have changed, rather than the whole page.
 
-* Simplicity
+- Performance
 
+- Simplicity
 
 ## Setting up a React app
 
@@ -24,6 +23,7 @@ npx create-react-app my-app
 ```
 npm start
 ```
+
 Opens on `localhost:3000`
 
 ## JSX
@@ -31,14 +31,14 @@ Opens on `localhost:3000`
 JSX = JS + HTML
 
 ```javascript
-const jsx = <h1>This is JSX</h1>
+const jsx = <h1>This is JSX</h1>;
 ```
 
 ### Why JSX?
 
-* Easier insertion of HTML code in JS
-* Code reusability
-* Code organisation
+- Easier insertion of HTML code in JS
+- Code reusability
+- Code organisation
 
 ## Components
 
@@ -51,8 +51,8 @@ const GetNameComponent = () => {
 };
 ```
 
-* Has to start with Capital 
-* App component is the first component to be displayed in the website.
+- Has to start with Capital
+- App component is the first component to be displayed in the website.
 
 ### Using a component
 
@@ -60,7 +60,7 @@ const GetNameComponent = () => {
 function App() {
   return (
     <div className="App">
-      <GetNameComponent/>
+      <GetNameComponent />
     </div>
   );
 }
@@ -68,7 +68,7 @@ function App() {
 
 ## Props
 
-An object that acts as Argument / Parameter for components. 
+An object that acts as Argument / Parameter for components.
 
 ```javascript
 function App() {
@@ -93,10 +93,14 @@ const User = (props) => {
 ```
 
 props object looks like this:
+
 ```javascript
 props = {
   name: "ash",
   age: 20,
-  email: "ash@ash.com"
-}
+  email: "ash@ash.com",
+};
 ```
+
+## CSS in React
+
