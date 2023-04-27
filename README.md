@@ -147,8 +147,32 @@ function App() {
 
 ## Conditional Rendering
 
-Uses the ternary operator.
+Uses the ternary operator(**?**).
 
 ```javascript
 {age > 18? <h1>OVER AGE</h1> : <h1>UNDER AGE</h1>}
 ```
+
+**&&** - used as a if statement
+
+```javascript
+{isGreen && <button>This is a button</button>}
+```
+
+## Lists in React
+
+```javascript
+function App() {
+  const names = ["Pedro", "Jake", "Mike", "Jack", "Kyle"]
+
+  return (
+    <div className="App">
+      {names.map((name, key) => {
+        return <h1 className="name" key={key}>{name}</h1>
+      })}
+    </div>
+  );
+}
+```
+
+* necessary to use the `key` property, else it will show warning.
