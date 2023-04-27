@@ -1,12 +1,12 @@
 import "./App.css";
+import { useState } from "react";
 
 function App() {
   
-  let age = 0;
+  let [age, setAge] = useState(0); // Initializing a state
 
   const updateAge = () => {
-    age += 1;
-    console.log(age);
+    setAge(age++);
   };
 
   return (

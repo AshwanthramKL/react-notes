@@ -243,4 +243,29 @@ No change is reflected in the website as React first renders once and displays t
 
 Hence we are going to use states.
 
-First, we have to import it.
+* We use states using a hook called `useState`.
+* First, we have to import it.  
+
+  ```javascript
+  import { useState } from "react";
+  ```
+* Initialize with variable name, and a function used to update the variable and a value to set initally inside the `useState()`.
+ 
+  ```javascript
+  function App() {
+    
+    let [age, setAge] = useState(0); // Initializing a state
+
+    const updateAge = () => {
+      setAge(age++);
+    };
+
+    return (
+      <div className="App">
+        <h1>{age}</h1>
+        <br />
+        <button onClick={updateAge}>Increment</button>
+      </div>
+    );
+  }
+  ```
