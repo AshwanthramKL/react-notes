@@ -138,48 +138,58 @@ Add styling to the JSX elements where they are written.
 function App() {
   return (
     <div className={styles.App}>
-      <h1 className={styles.name} style={{color: "brown"}}>MARTIALEAGLE</h1>
+      <h1 className={styles.name} style={{ color: "brown" }}>
+        MARTIALEAGLE
+      </h1>
     </div>
   );
 }
 ```
-
 
 ## Conditional Rendering
 
 Uses the ternary operator(**?**).
 
 ```javascript
-{age > 18? <h1>OVER AGE</h1> : <h1>UNDER AGE</h1>}
+{
+  age > 18 ? <h1>OVER AGE</h1> : <h1>UNDER AGE</h1>;
+}
 ```
 
 **&&** - used as a if statement
 
 ```javascript
-{isGreen && <button>This is a button</button>}
+{
+  isGreen && <button>This is a button</button>;
+}
 ```
 
 ## Lists in React
 
 ```javascript
 function App() {
-  const names = ["Pedro", "Jake", "Mike", "Jack", "Kyle"]
+  const names = ["Pedro", "Jake", "Mike", "Jack", "Kyle"];
 
   return (
     <div className="App">
       {names.map((name, key) => {
-        return <h1 className="name" key={key}>{name}</h1>
+        return (
+          <h1 className="name" key={key}>
+            {name}
+          </h1>
+        );
       })}
     </div>
   );
 }
 ```
 
-* necessary to use the `key` property, else it will show warning.
+- necessary to use the `key` property, else it will show warning.
 
 ## Lists and components
 
 `App.js`
+
 ```javascript
 import "./App.css";
 import { User } from "./User.js";
@@ -203,7 +213,7 @@ function App() {
 export default App;
 ```
 
-We create a new file in the name of the component and export the component to the main file.  
+We create a new file in the name of the component and export the component to the main file.
 
 `User.js`
 
@@ -221,7 +231,6 @@ export const User = (props) => {
 
 ```javascript
 function App() {
-  
   let age = 0;
 
   const updateAge = () => {
@@ -243,17 +252,17 @@ No change is reflected in the website as React first renders once and displays t
 
 Hence we are going to use states.
 
-* We use states using a hook called `useState`.
-* First, we have to import it.  
+- We use states using a hook called `useState`.
+- First, we have to import it.
 
   ```javascript
   import { useState } from "react";
   ```
-* Initialize with variable name, and a function used to update the variable and a value to set initally inside the `useState()`.
- 
+
+- Initialize with variable name, and a function used to update the variable and a value to set initally inside the `useState()`.
+
   ```javascript
   function App() {
-    
     let [age, setAge] = useState(0); // Initializing a state
 
     const updateAge = () => {
@@ -265,6 +274,27 @@ Hence we are going to use states.
         <h1>{age}</h1>
         <br />
         <button onClick={updateAge}>Increment</button>
+      </div>
+    );
+  }
+  ```
+
+  ## Use case of State
+
+  With an input value we can actively display as it is changed.
+
+  ```javascript
+  function App() {
+    const [inputValue, setinputValue] = useState("");
+
+    const handleInputchange = (event) => {
+      setinputValue(event.target.value);
+    };
+
+    return (
+      <div className="App">
+        <input type="text" onChange={handleInputchange} />
+        <h1>{inputValue}</h1>
       </div>
     );
   }
