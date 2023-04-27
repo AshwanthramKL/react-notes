@@ -176,3 +176,44 @@ function App() {
 ```
 
 * necessary to use the `key` property, else it will show warning.
+
+## Lists and components
+
+`App.js`
+```javascript
+import "./App.css";
+import { User } from "./User.js";
+
+function App() {
+  const users = [
+    { name: "Pedro", age: 21 },
+    { name: "Jake", age: 25 },
+    { name: "Jessica", age: 45 },
+  ];
+
+  return (
+    <div className="App">
+      {users.map((user, key) => {
+        return <User name={user.name} age={user.age} />;
+      })}
+    </div>
+  );
+}
+
+export default App;
+```
+
+We create a new file in the name of the component and export the component to the main file.  
+
+`User.js`
+
+```javascript
+export const User = (props) => {
+  return (
+    <div>
+      {props.name} {props.age}
+    </div>
+  );
+};
+```
+
