@@ -1,22 +1,19 @@
 import "./App.css";
-import { User } from "./User.js";
-import { Planet } from "./Planet";
 
 function App() {
-  const planets = [
-    { name: "Mars", isGasPlanet: false },
-    { name: "Earth", isGasPlanet: false },
-    { name: "Jupiter", isGasPlanet: true },
-    { name: "Venus", isGasPlanet: false },
-    { name: "Neptune", isGasPlanet: true },
-    { name: "Uranus", isGasPlanet: true },
-  ];
+  
+  let age = 0;
+
+  const updateAge = () => {
+    age += 1;
+    console.log(age);
+  };
 
   return (
     <div className="App">
-      {planets.map((planet, key) => {
-        return <Planet name={planet.name} isGasPlanet={planet.isGasPlanet} />;
-      })}
+      <h1>{age}</h1>
+      <br />
+      <button onClick={updateAge}>Increment</button>
     </div>
   );
 }

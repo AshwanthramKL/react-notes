@@ -217,3 +217,30 @@ export const User = (props) => {
 };
 ```
 
+## State
+
+```javascript
+function App() {
+  
+  let age = 0;
+
+  const updateAge = () => {
+    age += 1;
+    console.log(age);
+  };
+
+  return (
+    <div className="App">
+      {age}
+      <br />
+      <button onClick={updateAge}>Increment</button>
+    </div>
+  );
+}
+```
+
+No change is reflected in the website as React first renders once and displays the value of the variable at that time.
+
+Hence we are going to use states.
+
+First, we have to import it.
