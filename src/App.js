@@ -2,18 +2,18 @@ import "./App.css";
 import { useState } from "react";
 
 function App() {
-  const [showText, setShowText] = useState(true);
+  const [textColor, setTextColor] = useState("black");
 
   return (
     <div className="App">
       <button
         onClick={() => {
-          setShowText(!showText);
+          setTextColor(textColor === "black" ? "green" : "black");
         }}
       >
         Show/Hide
       </button>
-      {showText && <h1>This is a secret text</h1>}
+      <h1 style={{color: textColor}}>This is a secret text in a secret color</h1>
     </div>
   );
 }
