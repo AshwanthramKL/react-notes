@@ -2,16 +2,18 @@ import "./App.css";
 import { useState } from "react";
 
 function App() {
-  const [inputValue, setinputValue] = useState("");
+  const [showText, setShowText] = useState(true);
 
-  const handleInputchange = (event) => {
-    setinputValue(event.target.value);
-  };
-  
   return (
     <div className="App">
-      <input type="text" onChange={handleInputchange} />
-      <h1>{inputValue}</h1>
+      <button
+        onClick={() => {
+          setShowText(!showText);
+        }}
+      >
+        Show/Hide
+      </button>
+      {showText && <h1>This is a secret text</h1>}
     </div>
   );
 }
