@@ -2,18 +2,21 @@ import "./App.css";
 import { useState } from "react";
 
 function App() {
-  const [textColor, setTextColor] = useState("black");
+  let [count, setCount] = useState(0);
 
   return (
     <div className="App">
-      <button
-        onClick={() => {
-          setTextColor(textColor === "black" ? "green" : "black");
-        }}
-      >
-        Show/Hide
-      </button>
-      <h1 style={{color: textColor}}>This is a secret text in a secret color</h1>
+        <button onClick={() =>{
+          setCount(count++)
+        }}>Increase</button>
+        <button onClick={() =>{
+          setCount(count--)
+        }}>Decrease</button>
+        <button onClick={() =>{
+          setCount(0)
+        }}>Set to Zero</button>
+        
+        <h1>{count}</h1>
     </div>
   );
 }
