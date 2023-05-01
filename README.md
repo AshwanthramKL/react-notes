@@ -320,3 +320,7 @@ Hence we are going to use states.
     );
   }
   ```
+
+## CRUD Operations in React
+
+We'll be doing this by creating a to-do list.
