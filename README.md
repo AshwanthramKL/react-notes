@@ -330,3 +330,25 @@ Refer to the following [repository](https://github.com/AshwanthramKL/toDoList-re
 ![Website Preview](./public/website_preview.png)
 ![Website Preview 2](./public/website_preview2.png)
 
+## Component Lifecycle
+
+Lifecycle refers to the stages that a component goes through.
+
+**3 Stages**:
+
+- **Mounting** - The component appearing in the screen or starting to exist in the project.
+- **Updating** - The component is changing something such as the UI, etc...
+- **UnMounting** - The component stop appearing from the screen
+
+## useEffect Hook
+
+`useEffect` is a hook in React that allows you to perform side effects in functional components.  
+
+Side effects include tasks like fetching data from a server, modifying the DOM, or setting up event listeners.
+
+```javascript
+useEffect(() => {
+  console.log("COMPONENT MOUNTED");
+});
+```
+Console's log when the component is mounted.

@@ -1,29 +1,21 @@
 import "./App.css";
 import { useState } from "react";
+import { Text } from "./Text";
 
 function App() {
-  const [toDoList, setToDoList] = useState([]);
-  const [newTask, setNewTask] = useState("");
-
-  const handleChange = (event) => {
-    setNewTask(event.target.value);
-  };
-
-  const addTask = () => {
-    setToDoList([...toDoList, newTask]); // Using spread operator
-  };
+  const [showText, setShowText] = useState(false);
 
   return (
     <div className="App">
-      <div className="addTask">
-        <input onChange={handleChange} />
-        <button onClick={addTask}>Add task</button>
-      </div>
-      <div className="list">
-        {toDoList.map((task) => {
-          return <h1>{task}</h1>;
-        })}
-      </div>
+      <button
+        onClick={() => {
+          setShowText(!showText);
+        }}
+      >
+        Show Text
+      </button>
+
+      {showText && <Text />}
     </div>
   );
 }
