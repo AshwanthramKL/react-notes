@@ -342,7 +342,7 @@ Lifecycle refers to the stages that a component goes through.
 
 ## useEffect Hook
 
-`useEffect` is a hook in React that allows you to perform side effects in functional components.  
+`useEffect` is a hook in React that allows you to perform side effects in functional components.
 
 Side effects include tasks like fetching data from a server, modifying the DOM, or setting up event listeners.
 
@@ -351,4 +351,33 @@ useEffect(() => {
   console.log("COMPONENT MOUNTED");
 });
 ```
-Console's log when the component is mounted.
+
+Console's log when the component is **mounted**.
+
+```javascript
+useEffect(() => {
+  console.log("COMPONENT MOUNTED");
+
+  return () => {
+    console.log("COMPONENT UNMOUNTED");
+  };
+});
+```
+
+The console log inside the return statement will be executed when the component unmounts.
+
+The `useEffect()` also take another parameter.
+
+This parameter contains an array of dependencies that determines when the side effect should be executed.
+
+```javascript
+useEffect(() => {
+  console.log("COMPONENT MOUNTED");
+
+  return () => {
+    console.log("COMPONENT UNMOUNTED");
+  };
+}, [text]);
+```
+
+In the above example the statement will be logged only if a change is made to the text variable.
