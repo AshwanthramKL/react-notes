@@ -381,3 +381,21 @@ useEffect(() => {
 ```
 
 In the above example the statement will be logged only if a change is made to the text variable.
+
+## React Strict mode
+
+`<StrictMode>` lets you find common bugs in your components early during development.
+
+Use StrictMode to enable additional development behaviors and warnings for the component tree inside.
+
+```javascript
+import { StrictMode } from "react";
+import { createRoot } from "react-dom/client";
+
+const root = createRoot(document.getElementById("root"));
+root.render(
+  <StrictMode>
+    <App />
+  </StrictMode>
+);
+```
