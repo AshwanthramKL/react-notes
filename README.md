@@ -324,3 +324,9 @@ Hence we are going to use states.
 ## CRUD Operations in React
 
 We'll be doing this by creating a to-do list.
+
+Refer to the following [repository](https://github.com/AshwanthramKL/toDoList-react) for the code.
+
+![Website Preview](./public/website_preview.png)
+![Website Preview 2](./public/website_preview2.png)
+
