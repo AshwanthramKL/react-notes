@@ -402,3 +402,18 @@ root.render(
 
 ## How To Fetch Data From an API
 
+Using `fetch`:
+
+```javascript
+fetch("https://catfact.ninja/fact")
+  .then((res) => res.json())
+  .then((data) => console.log(data));
+```
+
+Using `Axios`:
+
+```javascript
+Axios.get("https://catfact.ninja/fact").then((res) => {
+  console.log(res.data);
+});
+```
