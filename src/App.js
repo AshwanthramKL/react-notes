@@ -3,30 +3,46 @@ import "./App.css";
 import Axios from "axios";
 
 function App() {
-  const [name, setName] = useState("");
-  const [predictedAge, setPredictedAge] = useState(null);
+  const [excuse, setExcuse] = useState("");
 
-  const predictAge = () => {
-    Axios.get(`https://api.agify.io/?name=${name}`).then((res) => {
-      setPredictedAge(res.data)
-      console.log(predictedAge)
-    });
+  const generateExcuse = (reason) => {
+    Axios.get(`https://excuser-three.vercel.app/v1/excuse/${reason}/`).then(
+      (res) => {
+        setExcuse(res.data[0].excuse);
+      }
+    );
   };
 
   return (
     <div className="App">
-      <input
-        type="text"
-        placeholder="Kashik"
-        onChange={(event) => {
-          setName(event.target.value);
-        }}
-      />
-      <button onClick={predictAge}>Predict Age</button>
+      <h1>Generate an Excuse</h1>
 
-      <h1>Name: {predictedAge?.name}</h1>
-      <h1>Predicted age: {predictedAge?.age}</h1>
-      <h1>Count: {predictedAge?.count}</h1>
+      <button
+        id="party"
+        onClick={() => {
+          generateExcuse("party");
+        }}
+      >
+        Party
+      </button>
+      <button
+        id="family"
+        onClick={() => {
+          generateExcuse("family");
+        }}
+      >
+        Family
+      </button>
+      <button
+        id="office"
+        onClick={() => {
+          generateExcuse("office");
+        }}
+      >
+        Office
+      </button>
+
+      <h1>{excuse}</h1>
     </div>
   );
 }
