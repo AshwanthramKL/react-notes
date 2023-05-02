@@ -399,3 +399,6 @@ root.render(
   </StrictMode>
 );
 ```
+
+## How To Fetch Data From an API
+
