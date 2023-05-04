@@ -417,3 +417,73 @@ Axios.get("https://catfact.ninja/fact").then((res) => {
   console.log(res.data);
 });
 ```
+
+## React Router DOM
+
+### React Router DOM v6
+
+```javascript
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+```
+
+We first import the BrowserRouter, Routes, and Route component.
+
+```javascript
+<Router>
+  <Routes>
+    <Route path="/" element={<Home />} />
+    <Route path="/menu" element={<Menu />} />
+    <Route path="/contact" element={<Contact />} />
+  </Routes>
+</Router>
+```
+
+Then we set routes and elements to be displayed.
+
+The file usually auto-imports the components fromt their locations.
+
+```javascript
+import { Home } from "./pages/Home";
+import { Contact } from "./pages/Contact";
+import { Menu } from "./pages/Menu";
+```
+
+Now we create an error page to show up if the route doesn't exist.
+
+```javascript
+<Route path="*" element={<h1>Error 404: Page not found</h1>} />
+```
+
+Creating a navbar component with `Link`
+
+```javascript
+import { Link } from "react-router-dom";
+
+export const Navbar = () => {
+  return (
+    <div>
+      <Link to={"/"}>Home</Link>
+      <Link to={"/menu"}>Menu</Link>
+      <Link to={"/contact"}>Contact</Link>
+    </div>
+  );
+};
+```
+
+Place the component within Router and above Routes
+
+```javascript
+<Router>
+  <Navbar />
+  <Routes>
+    <Route path="/" element={<Home />} />
+    <Route path="/menu" element={<Menu />} />
+    <Route path="/contact" element={<Contact />} />
+    <Route path="*" element={<h1>Error 404: Page not found</h1>} />
+  </Routes>
+</Router>
+```
+
+Video Exercise: Watch the [video](https://www.youtube.com/watch?v=z0vaVoxMoSA) on Router DOM.
+
+### React Router DOM v6
