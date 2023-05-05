@@ -667,8 +667,62 @@ export const ChangeProfile = (props) => {
 };
 ```
 
-We pass the `chagneUsername` state through `Profile.js` and then to `ChangeProfile.js` where it is required. But it is not used in the `Profile.js` component.  
+We pass the `chagneUsername` state through `Profile.js` and then to `ChangeProfile.js` where it is required. But it is not used in the `Profile.js` component.
 
-This is called `prop drilling` - the process of passing data from one component via several interconnected components to the component that needs it.  
+This is called `prop drilling` - the process of passing data from one component via several interconnected components to the component that needs it.
 
-We fix this using 
+We fix this using `Context API`.
+
+First we import the following in `App.js`
+
+```javascript
+import { createContext } from "react";
+```
+
+We use `createContext()` to create a global Context in this instance.
+
+```javascript
+export const AppContext = createContext();
+```
+
+Enclose the routes that share the Context within the `AppContext` and add `Provider` to show that we are providing data.  
+We pass the required values as props.
+
+```javascript
+return (
+  <div className="App">
+    <AppContext.Provider value={{ username, setUsername }}>
+      <Router>
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/profile" element={<Profile />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="*" element={<h1>Error 404: Page not found</h1>} />
+        </Routes>
+      </Router>
+    </AppContext.Provider>
+  </div>
+);
+```
+
+In `Profile.js` import these,
+
+```javascript
+import { useContext } from "react";
+import { AppContext } from "../App";
+```
+
+Instead of passing props, we use context in the following way.
+
+```javascript
+export const Profile = () => {
+  const { username } = useContext(AppContext);
+  return (
+    <div>
+      PROFILE, user is {username}
+      <ChangeProfile />
+    </div>
+  );
+};
+```

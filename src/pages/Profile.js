@@ -1,10 +1,13 @@
-import {ChangeProfile} from '../component/ChangeProfile'
+import { ChangeProfile } from "../component/ChangeProfile";
+import { useContext } from "react";
+import { AppContext } from "../App";
 
-export const Profile = (props) => {
+export const Profile = () => {
+  const { username } = useContext(AppContext);
   return (
     <div>
-      PROFILE, user is {props.username}
-      <ChangeProfile setUsername={props.setUsername} />
+      PROFILE, user is {username}
+      <ChangeProfile />
     </div>
   );
 };
