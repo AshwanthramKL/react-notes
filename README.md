@@ -484,6 +484,112 @@ Place the component within Router and above Routes
 </Router>
 ```
 
-Video Exercise: Watch the [video](https://www.youtube.com/watch?v=z0vaVoxMoSA) on Router DOM.
+Video Exercise: Watch this [video](https://www.youtube.com/watch?v=z0vaVoxMoSA) on Router DOM.
 
-### React Router DOM v6
+### React Router DOM v6.4+
+
+Import the following components from the `react-router-dom` library.
+
+```javascript
+import {
+  createBrowserRouter,
+  createRoutesFromElements,
+  Route,
+  Link,
+  Outlet,
+  RouterProvider,
+} from "react-router-dom";
+```
+
+Assign the `createBrowserRouter` to router variable.
+
+Embed the `createRoutesFromElements` inside it.  
+Inside it goes all the `Route` components.  
+`index` means that route will load first.
+
+```javascript
+const router = createBrowserRouter(
+  createRoutesFromElements(
+    <Route path="/" element={<Root />}>
+      <Route index element={<Home />} />
+      <Route path="/data" element={<Data />} />
+      <Route path="/contact" element={<Contact />} />
+    </Route>
+  )
+);
+```
+
+Creat Root Component with `Link`.
+
+```javascript
+const Root = () => {
+  return (
+    <div>
+      <div>
+        <Link to="/">Home</Link>
+        <Link to="/data">Data</Link>
+      </div>
+      <div>
+        <Outlet />
+      </div>
+    </div>
+  );
+};
+```
+
+Outlet - All of the remaining routes will display the outlets. It is a placeholder for all the other routes.
+
+Finally while returning, pass the `RouteProvider` component with `router` as a prop.
+
+```javascript
+return (
+  <div className="App">
+    <RouterProvider router={router} />
+  </div>
+);
+```
+
+### Data Fetching
+
+Import the following hooks.  
+
+```javascript
+import { useLoaderData, useNavigation } from "react-router-dom";
+```
+
+We fetch data from the component using `useLoaderData`.  
+
+We use `useNavigation` to check the state of the image being loaded.
+
+```javascript
+export const Data = () => {
+  const dogUrl = useLoaderData();
+  const navigation = useNavigation();
+
+  if (navigation.state === "loading") {
+    return <h1>Loading...</h1>;
+  }
+
+  return (
+    <div>
+      <img src={dogUrl} alt="doggy" />
+    </div>
+  );
+};
+```
+
+`Dataloader` component is used to fetch the data from the api.
+
+```javascript
+export const dataLoader = async () => {
+  const res = await fetch("https://random.dog/woof.json");
+  const dog = await res.json();
+  return dog?.url;
+};
+```
+
+`App.js`
+
+```javascript
+<Route path="/data" element={<Data />} loader={dataLoader} />
+```
