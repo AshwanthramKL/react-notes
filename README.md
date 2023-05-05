@@ -551,13 +551,13 @@ return (
 
 ### Data Fetching
 
-Import the following hooks.  
+Import the following hooks.
 
 ```javascript
 import { useLoaderData, useNavigation } from "react-router-dom";
 ```
 
-We fetch data from the component using `useLoaderData`.  
+We fetch data from the component using `useLoaderData`.
 
 We use `useNavigation` to check the state of the image being loaded.
 
@@ -593,3 +593,82 @@ export const dataLoader = async () => {
 ```javascript
 <Route path="/data" element={<Data />} loader={dataLoader} />
 ```
+
+## State Managment - useContext Hook
+
+Objective is to have a username displayed in home and profile.
+
+Have a ChangeProfile component that changes the username.
+
+`App.js`
+
+```javascript
+function App() {
+  const [username, setUsername] = useState("martialeagle");
+
+  return (
+    <div className="App">
+      <Router>
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<Home username={username} />} />
+          <Route
+            path="/profile"
+            element={<Profile username={username} setUsername={setUsername} />}
+          />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="*" element={<h1>Error 404: Page not found</h1>} />
+        </Routes>
+      </Router>
+    </div>
+  );
+}
+```
+
+`Profile.js`
+
+```javascript
+import { ChangeProfile } from "../component/ChangeProfile";
+
+export const Profile = (props) => {
+  return (
+    <div>
+      PROFILE, user is {props.username}
+      <ChangeProfile setUsername={props.setUsername} />
+    </div>
+  );
+};
+```
+
+`ChangeProfile.js`
+
+```javascript
+import { useState } from "react";
+
+export const ChangeProfile = (props) => {
+  const [newUserName, setNewUserName] = useState("");
+
+  return (
+    <div>
+      <input
+        onChange={(event) => {
+          setNewUserName(event.target.value);
+        }}
+      />
+      <button
+        onClick={() => {
+          props.setUsername(newUserName);
+        }}
+      >
+        Change Username
+      </button>
+    </div>
+  );
+};
+```
+
+We pass the `chagneUsername` state through `Profile.js` and then to `ChangeProfile.js` where it is required. But it is not used in the `Profile.js` component.  
+
+This is called `prop drilling` - the process of passing data from one component via several interconnected components to the component that needs it.  
+
+We fix this using 
