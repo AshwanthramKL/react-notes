@@ -2,6 +2,40 @@
 
 React is a popular open-source JavaScript library used for building user interfaces. It was created by Facebook and is now maintained by Facebook and a community of developers.
 
+## Table of Contents
+
+- [Why React over vanilla JS?](#why-react-over-vanilla-js)
+- [Setting up a React app](#setting-up-a-react-app)
+- [Running the React app](#running-the-react-app)
+- [JSX](#jsx)
+  - [Why JSX?](#why-jsx)
+- [Components](#components)
+  - [Using a component](#using-a-component)
+- [Props](#props)
+- [CSS in React](#css-in-react)
+  - [With App.css](#with-appcss)
+  - [With App.module.css](#with-appmodulecss)
+  - [Inline CSS](#inline-css)
+- [Conditional Rendering](#conditional-rendering)
+- [Lists in React](#lists-in-react)
+- [Lists and components](#lists-and-components)
+- [State](#state)
+  - [Use case of State](#use-case-of-state)
+    - [Show and hide a div on the click of a button](#show-and-hide-a-div-on-the-click-of-a-button)
+- [CRUD Operations in React](#crud-operations-in-react)
+- [Component Lifecycle](#component-lifecycle)
+- [useEffect Hook](#useeffect-hook)
+- [React Strict mode](#react-strict-mode)
+- [How To Fetch Data From an API](#how-to-fetch-data-from-an-api)
+- [React Router DOM](#react-router-dom)
+  - [React Router DOM v6](#react-router-dom-v6)
+  - [React Router DOM v6.4+](#react-router-dom-v64)
+  - [Data Fetching](#data-fetching)
+- [State Managment - useContext Hook](#state-managment---usecontext-hook)
+- [React query - to fetch data from APIs](#react-query---to-fetch-data-from-apis)
+  - [Why react query?](#why-react-query)
+  - [Setting up the project](#setting-up-the-project)
+
 ## Why React over vanilla JS?
 
 - Makes it easy to create complex and dynamic UIs by breaking them down into reusable components.
