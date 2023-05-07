@@ -726,3 +726,95 @@ export const Profile = () => {
   );
 };
 ```
+
+## React query - to fetch data from APIs
+
+### Why react query?
+
+Previously we used `useEffect` and `fetch` to get data and store it into a state.
+
+However, this is not considered as the best practice.
+
+Hence the react team updated the `useEffect` to be called twice to test if the fetch is working as intented.
+
+And they also wanted to send a message to all developers to fetch data in react they must be using some _fetching solution_ such as `react query`.
+
+### Setting up the project
+
+1. Mention the components that you want to have access to react query.
+
+2. create a client variable with `QueryClient`.
+
+```javascript
+const client = new QueryClient({
+  defaultOptions: {
+    queries: {
+      refetchOnWindowFocus: false,
+    },
+  },
+});
+```
+
+3. To do this we must enclose all the components inside `QueryClientProvider`
+
+```javascript
+return (
+  <div className="App">
+    <QueryClientProvider client={client}>
+      <AppContext.Provider value={{ username, setUsername }}>
+        <Router>
+          <Navbar />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/profile" element={<Profile />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="*" element={<h1>Error 404: Page not found</h1>} />
+          </Routes>
+        </Router>
+      </AppContext.Provider>
+    </QueryClientProvider>
+  </div>
+);
+```
+
+4. Create variable `catData` that holds the data fetched from the api using `Axios`.
+
+```javascript
+const {
+  data: catData,
+  isLoading,
+  isError,
+  refetch,
+} = useQuery(["cat"], () => {
+  return Axios.get("https://catfact.ninja/fact").then((res) => res.data);
+});
+```
+
+5.  Display the data. Use refetch to get data from the api again.
+
+```javascript
+return (
+  <>
+    <h1>
+      This is the home page and the user is: {username}{" "}
+      <p>Cat fact: {catData?.fact}</p>
+    </h1>
+    <button onClick={refetch}>Update</button>
+  </>
+);
+```
+
+6. Use `isLoading` and `isError` as required.  
+
+```javascript
+if (isLoading) {
+  return <h1>Loading...</h1>;
+}
+
+if (isError) {
+  return <h1>There was an error loading your data</h1>;
+}
+```
+
+**Note:**  
+`React query updates data everytime you switch tabs`
