@@ -838,7 +838,7 @@ return (
 );
 ```
 
-6. Use `isLoading` and `isError` as required.  
+6. Use `isLoading` and `isError` as required.
 
 ```javascript
 if (isLoading) {
@@ -852,3 +852,7 @@ if (isError) {
 
 **Note:**  
 `React query updates data everytime you switch tabs`
+
+## React Forms
+
+We'll be using `React Hook Form` and `YUP`.
