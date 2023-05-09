@@ -1,5 +1,4 @@
 import { useQuery } from "@tanstack/react-query";
-import Axios from "axios";
 import { useGetCat } from "../hooks/useGetCat";
 
 export const Cat = () => {
