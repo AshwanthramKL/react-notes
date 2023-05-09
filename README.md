@@ -856,3 +856,96 @@ if (isError) {
 ## React Forms
 
 We'll be using `React Hook Form` and `YUP`.
+
+We use,  
+`React Hook Form` for creating the form  
+`YUP` - for validating the form
+
+Import the required libraries and hooks
+
+```javascript
+import { useForm } from "react-hook-form";
+import * as yup from "yup";
+```
+
+Use the `register` and `handleSubmit` methods to create the forms.
+
+```javascript
+const {
+  register,
+  handleSubmit,
+  formState: { errors },
+} = useForm({ resolver: yupResolver(schema) });
+```
+
+Pass our `onSubmit` inside `handleSubmit`.  
+Use `register` to add format to the object created by the form.  
+`errors` is used to display the errors while filling the form.
+
+```javascript
+const onSubmit = (data) => {
+  console.log(data);
+};
+
+return (
+  <form onSubmit={handleSubmit(onSubmit)}>
+    <input type="text" placeholder="Full Name..." {...register("fullName")} />
+    <p>{errors.fullName?.message}</p>
+    <br />
+    <input type="text" placeholder="Email..." {...register("email")} />
+    <p>{errors.email?.message}</p>
+    <br />
+    <input type="number" placeholder="Age..." {...register("age")} />
+    <p>{errors.age?.message}</p>
+    <br />
+    <input
+      type="password"
+      placeholder="Password..."
+      {...register("password")}
+    />
+    <p>{errors.password?.message}</p>
+    <br />
+    <input
+      type="password"
+      placeholder="Confirm Password..."
+      {...register("confirmPassword")}
+    />
+    <p>{errors.confirmPassword?.message}</p>
+    <br />
+    <button type="sumbit">sumbit</button>
+  </form>
+);
+```
+
+Using `yup` to `shape` the `object` of the form, i.e add schema to the form.
+
+```javascript
+export const Form = () => {
+  const schema = yup.object().shape({
+    fullName: yup.string().required("Your full name is a required field"),
+    email: yup.string().email().required("This is a required field"),
+    age: yup
+      .number()
+      .positive()
+      .integer()
+      .min(18, "must be above 18yrs of age")
+      .required("This is a required field"),
+    password: yup.string().min(4).max(20).required("This is a required field"),
+    confirmPassword: yup
+      .string()
+      .oneOf([yup.ref("password"), null], "Passwords don't match")
+      .required("This is a required field"),
+  });
+```
+
+Integrating `yup` and `react-hook-form`
+
+```javascript
+import { yupResolver } from "@hookform/resolvers/yup";
+```
+
+```javascript
+useForm({ resolver: yupResolver(schema) });
+```
+
+
