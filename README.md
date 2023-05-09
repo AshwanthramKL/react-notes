@@ -948,4 +948,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 useForm({ resolver: yupResolver(schema) });
 ```
 
+## Custom Hooks
+
+### What is a hook?  
 
