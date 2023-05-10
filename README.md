@@ -950,5 +950,53 @@ useForm({ resolver: yupResolver(schema) });
 
 ## Custom Hooks
 
-### What is a hook?  
+### What is a hook?
 
+Functions that we can use to isolate the reusable part from a functional component.
+
+### 3 rules:
+
+- Shouold start wiht the word `use`.
+- Should be called only at the top level of a file.
+- Should be called only from React functions.
+
+`useToggle`
+
+```javascript
+import { useState } from "react";
+
+export const useToggle = (initialVal = false) => {
+  const [state, setState] = useState(initialVal);
+
+  const toggle = () => {
+    setState((prev) => (prev = !prev));
+  };
+
+  return [state, toggle];
+};
+```
+
+`useGetCat.js`
+
+```javascript
+import { useQuery } from "@tanstack/react-query";
+import Axios from "axios";
+
+export const useGetCat = () => {
+  const {
+    data,
+    refetch,
+    isLoading: isCatLoading,
+    error,
+  } = useQuery(["cat"], async () => {
+    return Axios.get("https://catfact.ninja/fact").then((res) => res.data);
+  });
+
+  const refetchData = () => {
+    alert("Data refetched");
+    refetch();
+  };
+
+  return { data, refetchData, isCatLoading, error };
+};
+```
