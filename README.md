@@ -1000,3 +1000,99 @@ export const useGetCat = () => {
   return { data, refetchData, isCatLoading, error };
 };
 ```
+
+## Typerscript
+
+### Why Typescript?
+
+- Typesafety
+- Better code organisation
+- Autocompletion
+
+### Prop types
+
+Install package with: `npm install prop-types`
+
+```javascript
+Person.propTypes = {
+  name: PropTypes.string,
+  email: PropTypes.string,
+  age: PropTypes.number,
+  isMarried: PropTypes.bool,
+  friends: PropTypes.arrayOf(PropTypes.string),
+};
+```
+
+The above proptypes are declared for the following props
+
+```javascript
+<Person
+  name="Ash"
+  email="ash@gmail.com"
+  age={12}
+  isMarried={true}
+  friends={["jessica", "jake", "jerry", "jasmine"]}
+/>
+```
+
+### Creating a react app with typescript files
+
+Use the below command:  
+`npx create-react-app . --template typescript`
+
+### Type of Prop with typescript instead of using prop-types
+
+Create Interface - A way to describe the shape of an object.
+
+```typescript
+interface Props {
+  name: string;
+  email: string;
+  age: number;
+  isMarried: boolean;
+  friends: string[];
+}
+```
+
+If I want to make a parameter optional in Props then:
+
+```typescript
+interface Props {
+  name: string;
+  email: string;
+  age: number;
+  isMarried: boolean;
+  friends?: string[];
+}
+```
+
+### Type of State with typescript
+
+```typescript
+const [name, setName] = useState<string>("");
+```
+
+### Enums
+
+Create a type that can have only a few options.
+
+Creation:
+
+```typescript
+export enum Country {
+  Brazil = "Brazil",
+  India = "India",
+  Canada = "Canada",
+}
+```
+
+```typescript
+<Person
+  name="Ash"
+  email="ash@gmail.com"
+  age={12}
+  isMarried={true}
+  friends={["jessica", "jake", "jerry", "jasmine"]}
+  country={Country.India}
+/>
+```
