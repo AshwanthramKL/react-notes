@@ -1009,6 +1009,7 @@ export const useGetCat = () => {
 - Better code organisation
 - Autocompletion
 
+Refer this [repo](https://github.com/AshwanthramKL/typescript-basics) for the code implementation.  
 ### Prop types
 
 Install package with: `npm install prop-types`
