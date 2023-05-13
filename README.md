@@ -1097,3 +1097,7 @@ export enum Country {
   country={Country.India}
 />
 ```
+
+## Redux Toolkit
+
+Redux Toolkit is a package that simplifies the way you write Redux code. It provides a set of opinionated defaults and utilities that help you reduce boilerplate and write more efficient and maintainable Redux code.
