@@ -1009,7 +1009,8 @@ export const useGetCat = () => {
 - Better code organisation
 - Autocompletion
 
-Refer this [repo](https://github.com/AshwanthramKL/typescript-basics) for the code implementation.  
+Refer this [repo](https://github.com/AshwanthramKL/typescript-basics) for the code implementation.
+
 ### Prop types
 
 Install package with: `npm install prop-types`
@@ -1055,7 +1056,7 @@ interface Props {
 }
 ```
 
-If I want to make a parameter optional in Props then:
+If I want to make a parameter _optional_ in Props then:
 
 ```typescript
 interface Props {
@@ -1098,6 +1099,50 @@ export enum Country {
 />
 ```
 
+```
+Note:
+Since Typescript was taught, the course will henceforth be in typescript. Hence I'll be using different repos for the upcoming topics and linking them below.
+```
+
 ## Redux Toolkit
 
 Redux Toolkit is a package that simplifies the way you write Redux code. It provides a set of opinionated defaults and utilities that help you reduce boilerplate and write more efficient and maintainable Redux code.
+
+### What is Store?
+
+A place where you group all of your global states.
+
+We create a `store.ts` file.
+
+### reducer
+
+A function that takes in an `action` and a `previous state` and returns new state.
+
+### createSlice
+
+The `createSlice()` function is a utility function that helps in generating a Redux slice, which is a bundle of Redux-related code that contains a slice of the store state, along with the reducers and action creators that operate on that slice.
+
+### useDispatch
+
+Is used to dispatch any actions or functions we have in our store.
+
+```javascript
+const dispatch = useDispatch();
+```
+
+```javascript
+<button
+  type="submit"
+  onClick={() => dispatch(login({ username: newUsername }))}
+>
+```
+
+### useSelector
+
+Is used for getting states.
+
+```javascript
+const username = useSelector((state: any) => state.user.value.username);
+```
+
+Refer this [repo](https://github.com/AshwanthramKL/react-reduxtoolkit) for the implementation of the above code.
