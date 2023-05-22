@@ -35,7 +35,25 @@ React is a popular open-source JavaScript library used for building user interfa
 - [React query - to fetch data from APIs](#react-query---to-fetch-data-from-apis)
   - [Why react query?](#why-react-query)
   - [Setting up the project](#setting-up-the-project)
-
+<!--  -->
+- [React Forms](#react-forms)
+- [Custom Hooks](#custom-hooks)
+  - [What is a hook?](#what-is-a-hook)
+  - [useToggle](#useToggle)
+  - [useGetCat.js](#useGetCat.js)
+- [Typerscript](#typerscript)
+  - [Why Typescript?](#why-typescript)
+  - [Prop types](#prop-types)
+  - [Creating a react app with typescript files](#creating-a-react-app-with-typescript-files)
+  - [Type of Prop with typescript instead of using prop-types](#type-of-prop-with-typescript-instead-of-using-prop-types)
+  - [Type of State with typescript](#type-of-state-with-typescript)
+  - [Enums](#enums)
+- [Redux Toolkit](#redux-toolkit)
+  - [What is Store?](#what-is-store)
+  - [reducer](#reducer)
+  - [createSlice](#createSlice)
+  - [useDispatch](#useDispatch)
+  - [useSelector](#useSelector)
 ## Why React over vanilla JS?
 
 - Makes it easy to create complex and dynamic UIs by breaking them down into reusable components.
@@ -960,7 +978,7 @@ Functions that we can use to isolate the reusable part from a functional compone
 - Should be called only at the top level of a file.
 - Should be called only from React functions.
 
-`useToggle`
+### `useToggle`
 
 ```javascript
 import { useState } from "react";
@@ -976,7 +994,7 @@ export const useToggle = (initialVal = false) => {
 };
 ```
 
-`useGetCat.js`
+### `useGetCat.js`
 
 ```javascript
 import { useQuery } from "@tanstack/react-query";
